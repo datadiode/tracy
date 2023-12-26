@@ -1,0 +1,82 @@
+#include "resource.h"
+
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+
+IDI_PAW ICON "paw.ico" // from https://git.gdgd.jp.net/lin/nekojarasi/
+
+IDB_DROPDOWN BITMAP "dropdown.bmp"
+
+IDD_MAINWINDOW MENUEX
+{
+    POPUP "&Tail", 0, 0, 0
+    {
+        MENUITEM "\t&Snap to Content", IDM_TAIL, MFT_RADIOCHECK, 0
+        MENUITEM "\t2K (&1)", IDM_TAIL_11, MFT_RADIOCHECK, 0
+        MENUITEM "\t4K (&2)", IDM_TAIL_12, MFT_RADIOCHECK, 0
+        MENUITEM "\t8K (&3)", IDM_TAIL_13, MFT_RADIOCHECK, 0
+        MENUITEM "\t16K (&4)", IDM_TAIL_14, MFT_RADIOCHECK, 0
+        MENUITEM "\t32K (&5)", IDM_TAIL_15, MFT_RADIOCHECK, 0
+        MENUITEM "\t64K (&6)", IDM_TAIL_16, MFT_RADIOCHECK, 0
+        MENUITEM "\t128K (&7)", IDM_TAIL_17, MFT_RADIOCHECK, 0
+        MENUITEM "\t256K (&8)", IDM_TAIL_18, MFT_RADIOCHECK, 0
+        MENUITEM "\t512K (&9)", IDM_TAIL_19, MFT_RADIOCHECK, 0
+        MENUITEM "\t1024K (&0)", IDM_TAIL_20, MFT_RADIOCHECK, 0
+    }
+    POPUP "&Export", 0, 0, 0
+    {
+        MENUITEM "&Whole Lot to File", IDM_EXPORT_WHOLE_LOT_TO_FILE, MFT_RIGHTJUSTIFY, 0
+        MENUITEM "&Selection to File", IDM_EXPORT_SELECTION_TO_FILE, MFT_RIGHTJUSTIFY, 0
+        MENUITEM "Selection to &Clipboard", IDM_EXPORT_SELECTION_TO_CLIPBOARD, MFT_RIGHTJUSTIFY, 0
+    }
+    POPUP "&View", 0, 0, 0
+    {
+        MENUITEM "Always on &Top", IDM_ALWAYS_ON_TOP, MFT_RIGHTJUSTIFY, 0
+    }
+    POPUP "&Microfilter", 0, 0, 0
+    {
+        MENUITEM "&Hide", IDM_CHECKLIST_HIDE, MFT_RADIOCHECK, 0
+    }
+    MENUITEM "v1.0", 0, MFT_RIGHTJUSTIFY, MFS_GRAYED
+}
+
+IDD_MAINWINDOW DIALOGEX 0, 0, 480, 300
+STYLE DS_CENTER | DS_MODALFRAME | DS_SHELLFONT | WS_CAPTION | WS_MAXIMIZEBOX | WS_POPUP | WS_THICKFRAME | WS_SYSMENU | WS_CLIPCHILDREN
+CAPTION "Tracy"
+MENU IDD_MAINWINDOW
+FONT 10, "MS Shell Dlg", 400, 0, 1
+{
+    CONTROL         "", IDC_LIST, WC_LISTVIEW, WS_TABSTOP | WS_CLIPSIBLINGS | LVS_ALIGNLEFT | LVS_SHOWSELALWAYS | LVS_OWNERDATA | LVS_REPORT, 0, 0, 480, 300, WS_EX_LEFT
+}
+
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION     1,0,0,0
+    PRODUCTVERSION  1,0,0,0
+    FILEOS          VOS_NT_WINDOWS32
+    FILETYPE        VFT_DLL
+    FILESUBTYPE     VFT2_UNKNOWN
+    FILEFLAGSMASK   VS_FF_DEBUG | VS_FF_PRERELEASE | VS_FF_PATCHED | VS_FF_PRIVATEBUILD | VS_FF_INFOINFERRED | VS_FF_SPECIALBUILD
+    FILEFLAGS       VS_FF_INFOINFERRED
+{
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "000004B0"
+        {
+            VALUE "Comments", "You are free to use or not use this software."
+            VALUE "CompanyName", "Jochen Neubeck"
+            VALUE "FileDescription", "Tracy"
+            VALUE "FileVersion", "1.0.0.0"
+            VALUE "InternalName", "Tracy"
+            VALUE "LegalCopyright", "© 2018 Jochen Neubeck"
+            VALUE "LegalTrademarks", ""
+            VALUE "OriginalFilename", "Tracy.exe"
+            VALUE "PrivateBuild", ""
+            VALUE "ProductName", "Tracy"
+            VALUE "ProductVersion", "1.0.0.0"
+            VALUE "SpecialBuild", ""
+        }
+    }
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x0000, 0x04B0
+    }
+}
